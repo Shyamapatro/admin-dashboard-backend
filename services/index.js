@@ -1,0 +1,16 @@
+module.exports = {
+    versionServices: require("./versionServices"),
+    notificationServices: require("./notificationServices"),
+    categoryServices: require("./categoryServices"),
+    adminPermissionServices: require("./adminPermissionServices"),
+    adminServices: require("./adminServices"),
+    adminSessionServices:require("./adminSessionServices"),
+    adminAchievementServices:require("./adminAchievementServices"),
+    reportedBugServices:require("./reportedBugServices"),
+    reportedContentServices:require("./reportedContentServices"),
+    adminAchievementLevelServices:require("./adminAchievementLevelServices"),
+    socialAccountServices:require("./socialAccountServices"),
+    userServices: require("./userServices"),
+    userServiceSessions:require("./userServiceSessions"),
+    calenderServices:require("./calenderServices"),
+};

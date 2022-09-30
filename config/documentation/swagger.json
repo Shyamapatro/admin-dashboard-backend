@@ -1,0 +1,200 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger API for Android version management",
+    "description": "",
+    "version": "0.1.9"
+  },
+  "servers": [
+    {
+      "url": "",
+      "description": "Main server"
+    }
+  ],
+  "paths": {
+    "/app/getappdetails": {
+      "get": {
+        "summary": "get App details",
+        "description": "All app details",
+        "responses": {
+          "200": {
+            "description": "successfully retrieved App details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/addappdetails": {
+      "post": {
+        "summary": "Create app Deatils",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "appname": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "float"
+                  },
+                  "platform": {
+                    "type": "string",
+                    "enum": [
+                      "Android",
+                      "IOS"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/app/getplatform-details/{platform}": {
+      "get": {
+        "summary": "filter  based on blocked platforms [Android and IOS]",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "platform",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "IOS",
+                "Android"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    
+    "/app/count-app-versions/{appname}/{platform}": {
+      "get": {
+        "summary": "filter based on blocked platforms [Android and IOS]",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appname",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "platform",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/app/app-version-details/{appname}": {
+      "get": {
+        "summary": "filter based on blocked platforms [Android and IOS]",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "appname",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/app/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "App data removed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/edit": {
+      "put": {
+        "summary": "Edit app details",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+      
+        "responses": {
+          "200": {
+            "description": "Edit app details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
