@@ -86,7 +86,7 @@ module.exports = {
   addAdmin: async (payloadData) => {
     console.log(payloadData)
     const schema = Joi.object().keys({
-     email: Joi.string().required(),
+      email: Joi.string().required(),
       firstName: Joi.string().optional(),
       lastName: Joi.string().optional(),
       countryCode: Joi.string().optional(),
@@ -94,8 +94,9 @@ module.exports = {
       adminType: Joi.any()
         .valid(...appConstants.APP_CONSTANTS.ADMIN_TYPES)
         .optional(),
-      accessPermissions: Joi.array().items({
-       module: Joi.string().optional(),
+        
+        accessPermissions: Joi.array().items({
+      module: Joi.string().optional(),
         permission: Joi.boolean().optional()
         //  Joi.boolean()Joi.number().valid(0, 1).optional(),
       }),
